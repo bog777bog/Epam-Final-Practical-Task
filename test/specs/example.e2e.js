@@ -19,7 +19,6 @@ describe('Compute Engine', () => {
         await CalculatorPage.selectVMclass(); // Regular
         await CalculatorPage.selectSeries(series); // N1
         await CalculatorPage.selectInstanceType(instanceType); // n1-standard-8 (vCPUs: 8, RAM: 30 GB)
-        await browser.pause(10000);
         // await CalculatorPage.selectAddGPus();
         // await CalculatorPage.selectLocalSSD(); // 2x375 Gb
         // await CalculatorPage.selectDatacenter(); // Frankfurt (europe-west3)
