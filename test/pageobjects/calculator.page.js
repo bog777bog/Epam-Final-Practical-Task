@@ -4,7 +4,7 @@ class CalculatorPage extends Page {
     // async activateComputeEngine() {
     //     await $('//div[@class="tab-holder gke-standard"]//div[@class="presets-buttons layout-sm-column layout-align-center-center layout-column"]').click();
     // }
-    get frame() {return $('//iframe[@name="goog_1598225198"]')}
+    get frame() { return $('//iframe[@name="goog_1598225198"]')}
     
     async activateComputeEngine() {
         await $('(//div[@title="Compute Engine"])[1]').click();
@@ -28,15 +28,18 @@ class CalculatorPage extends Page {
         await $('md-option#select_option_105').click();
     }
 
-    async selectSeries() {
-        await $('md-select-value#select_value_label_85').click();
-        //await $('md-option#select_option_201').click();
-        await $('md-option[value="n1"] div:nth-child(1)').click();
+    async selectSeries(series) {
+        await browser.pause(500); // need for stability
+        await $("//md-select[@placeholder = 'Series']").click();
+        await browser.pause(500); // need for stability
+        await $(`md-option[value="${series}"] div:nth-child(1)`).click();
     }
 
-    async selectInstacneType() {
-        await $('md-select-value#select_value_label_86').click();
-        await $('md-option#select_option_516').click();
+    async selectInstanceType(ram) {
+        await browser.pause(500); // need for stability
+        await $('md-select[placeholder="Instance type"]').click();
+        await browser.pause(500); // need for stability
+        await $(`//md-option[contains(., '${ram}')]`).click();
     }
 
     async selectAddGPus() {
